@@ -72,14 +72,14 @@ export async function calculateMultiRewards() {
 }
 
 export async function calculateRewards() {
-	const stakingRewards = UZV2Staking__factory.connect(
+	const multiRewards = UZV2Staking__factory.connect(
 		STAKING_CONTRACT,
 		ctx.provider
 	);
 
 	let periodFinish: BigNumber;
 	try {
-		periodFinish = await stakingRewards.periodFinish().then(toBigNumber);
+		periodFinish = await multiRewards.periodFinish().then(toBigNumber);
 	} catch {
 		// ... then it's a multi-reward contract
 		return await calculateMultiRewards();
