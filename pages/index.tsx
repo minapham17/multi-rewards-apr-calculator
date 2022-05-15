@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
-import { calculateRewards } from "../apr";
+import { calculateMultiRewards } from "../apr";
 const Home: NextPage = () => {
-	const apr = calculateRewards();
+	const apr = calculateMultiRewards();
 	return (
 		<div className={styles.container}>
 			<a>APR</a>
